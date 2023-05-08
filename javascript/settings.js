@@ -33,3 +33,7 @@ changeTheme(user.settings.theme);
 notificationsForNewCardsThatBecameDueCheckbox.checked = user.settings.notifications.forNewCardsThatBecameDue;
 notificationsForRemindingDueCardsCheckbox.checked = user.settings.notifications.forRemindingDueCards;
 defaultDueSecondsInput.value = user.settings.defaultDueSeconds;
+
+// issues: themes dont save color when switching pages
+// notifications don't do anything
+// changing the default due seconds doesn't do anything
