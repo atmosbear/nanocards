@@ -39,7 +39,8 @@ createCardButton.addEventListener("click", () => {
   backEl.style.outline = "none";
   if (front && back) {
     let creationDate = Date.now();
-    user.currentDeck.cards.push({ front, back, creationDate });
+    let dueDate = (creationDate + user.settings.defaultDueSeconds) * 1000;
+    user.currentDeck.cards.push({ front, back, creationDate, dueDate });
     updateRecentlyCreatedCardsElement();
     frontEl.value = "";
     backEl.value = "";
