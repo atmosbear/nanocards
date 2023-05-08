@@ -1,21 +1,23 @@
 import user from "./user.js";
 
-let recentlyCreatedCards = [];
-
-user.decks.forEach((deck) => {
-  deck.cards.forEach((card) => {
-    if (card.creationDate > Date.now() - 300) {
-      recentlyCreatedCards.push(card);
-    }
+function getRecentlyCreatedCards() {
+  let recentlyCreatedCards = [];
+  user.decks.forEach((deck) => {
+    deck.cards.forEach((card) => {
+      if (card.creationDate > Date.now() - 300) {
+        recentlyCreatedCards.push(card);
+      }
+    });
   });
-});
+  return recentlyCreatedCards;
+}
 
-console.log(recentlyCreatedCards);
 function updateRecentlyCreatedCardsElement() {
   let recentlyCreatedCardsElement = document.querySelector(
     "#recently-created-cards-list"
   );
   recentlyCreatedCardsElement.innerHTML = "";
+  let recentlyCreatedCards = getRecentlyCreatedCards();
   recentlyCreatedCards.forEach((card) => {
     recentlyCreatedCardsElement.innerHTML += `
       <div class="recently-created-card">
@@ -25,5 +27,29 @@ function updateRecentlyCreatedCardsElement() {
     `;
   });
 }
+
+// make create-card-button clickable
+let createCardButton = document.querySelector("#create-card-button");
+createCardButton.addEventListener("click", () => {
+  let frontEl = document.querySelector("#front-input");
+  let backEl = document.querySelector("#back-input");
+  let front = frontEl.value;
+  let back = backEl.value;
+  frontEl.style.outline = "none";
+  backEl.style.outline = "none";
+  if (front && back) {
+    let creationDate = Date.now();
+    user.currentDeck.cards.push({ front, back, creationDate });
+    updateRecentlyCreatedCardsElement();
+    frontEl.value = "";
+    backEl.value = "";
+  }
+  if (!front) {
+    frontEl.style.outline = "1px solid red";
+  }
+  if (!back) {
+    backEl.style.outline = "1px solid red";
+  }
+});
 
 updateRecentlyCreatedCardsElement();
