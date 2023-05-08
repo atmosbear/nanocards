@@ -11,6 +11,35 @@
     <a href="study.html">Study</a>
     <a href="settings.html" class="current-page">Settings</a>
   </nav>
-  <div class="page-content"></div>
+  <div class="page-content">
+    <h1>Settings</h1>
+    <!--radio buttons for theme-->
+    <div class="theme-options">
+      <h2>Theme</h2>
+      <input type="radio" id="light" name="theme" value="light">
+      <label for="light">Light</label><br>
+      <input type="radio" id="dark" name="theme" value="dark" checked>
+      <label for="dark">Dark</label><br>
+    </div>
+    <!--number input for card due seconds-->
+    <div class="card-due-options">
+      <h2>Card Due Seconds</h2>
+      <input class="numeral-input" type="number" id="default-due-seconds-input" name="default-due-seconds-input" min="1" max="60" value="5"> 
+      </div>
+      <div class="notifications-options">
+        <h2>Notifications</h2>
+        <span class="checkbox">
+        <input type="checkbox" id="card-due-notifications" name="card-due-notifications" value="notifications" checked>
+        <label for="card-due-notifications">Card Due Notifications</label><br>
+      </span>
+      <span class="checkbox">
+        <input type="checkbox" id="due-card-reminders" name="due-card-reminders" value="notifications" checked>
+        <label for="due-card-reminders">Due Card Reminders</label><br>
+      </span>
+    </div>
+    <br><br>
+      <em style="justify-self:last baseline;">Don't worry, settings are autosaved!</em>
+    </div>
+
 </body>
 <link rel=stylesheet href="./navbar.css"></link>
