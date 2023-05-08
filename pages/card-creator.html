@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<style>
+  html {
+    visibility: hidden;
+    opacity:0;
+  }
+</style>
+<head>
+  <title>Card Creator</title>
+  <script type="module" src="../javascript/card-creator.js"></script>
+</head>
+<body>
+  <nav>
+    <a href="card-creator.html" class="current-page">Create</a>
+    <a href="study.html">Study</a>
+    <a href="settings.html">Settings</a>
+  </nav>
+  <div class="page-content">
+    <h1>Card Creator</h1>
+    <textarea autocomplete="off" id="front-input"></textarea>
+    <textarea autocomplete="off" id="back-input"></textarea>
+    <button>Create</button>
+    <em>Recently created</em>
+    <br>
+    <div id="recently-created-cards-list">
+      <div class="recently-created-card"><span class="f-text">F:</span> i am the front<br><span class="b-text">B:</span> and I am the back! Mwahahahahah</div>
+    </div>
+  </div>
+</body>
+<link rel=stylesheet href="./navbar.css"></link>
